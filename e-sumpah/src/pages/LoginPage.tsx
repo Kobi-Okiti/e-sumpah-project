@@ -7,6 +7,7 @@ import appstore from "../assets/appstore.png";
 
 const LoginPage: React.FC = () => {
   return (
+    <>
     <div className="body">
       <div className="illustrations">
         <img src={logo} alt="" id="logo" />
@@ -27,6 +28,7 @@ const LoginPage: React.FC = () => {
         <img id="appstore" src={appstore} alt="" />
       </div>
     </div>
+    </>
   );
 };
 

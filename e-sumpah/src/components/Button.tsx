@@ -7,7 +7,7 @@ interface ButtonProps {
   paddingLeft?: string;
   paddingRight?: string;
   width?: string;
-  onClick?: () => void;
+  onClick?: any;
   children: ReactNode;
 }
 
