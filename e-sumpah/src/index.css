@@ -112,7 +112,7 @@ input::placeholder {
   right: 10px;
   top: 50%;
   border-radius: 5px;
-  transform: translateY(-8%);
+  position: absolute;
   padding: 5px 10px;
 }
 
@@ -155,6 +155,15 @@ input::placeholder {
   margin-top: 10px;
 }
 
+#toast-message{
+  /* margin: auto; */
+  text-align: right;
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  border-radius: 5px;
+  position: absolute;
+}
 /* custom button */
 Button {
   background-color: #CC0000;
@@ -167,5 +176,46 @@ Button {
   font-style: normal;
   border: none;
 }
+
+
+/* Nav Styling */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color:#491313;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+#menuicon{
+  width: 42px;
+  height: 42px;
+  margin: auto;
+}
+#minilogo{
+  width: 66px;
+  height: 27px;
+  margin: auto;
+}
+#proilepic{
+  width: 42px;
+  height: 42px;
+  margin: auto;
+}
+
+#nav-group-1{
+  width: 12%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+#nav-group-2{
+  width: 88%;
+  display: flex;
+  justify-content: right;
+  margin-right: 20px;
+}
+
 
 

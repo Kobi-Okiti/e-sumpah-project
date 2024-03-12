@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import Button from './Button';
-import ErrorMessage from './errorMessage';
-import SuccessMessage from './successMessage';
 
 
 
+interface LoginFormProps {
+  setErrorMessage: React.Dispatch<React.SetStateAction<string>>;
+  setSuccessMessage: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const LoginForm: React.FC = () => {
+const LoginForm: React.FC<LoginFormProps>= ({ setErrorMessage, setSuccessMessage }) => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  // const [redirect, setRedirect] = useState(false);
+  // const [successMessage, setSuccessMessage] = useState('');
+  // const [errorMessage, setErrorMessage] = useState('');
 
   const handleRequestOTP = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -43,6 +46,7 @@ const LoginForm: React.FC = () => {
         console.error('Error requesting OTP:', error.message);
         setErrorMessage(error.message);
       });
+      
   };
   
   
@@ -64,17 +68,33 @@ const LoginForm: React.FC = () => {
     })
       .then(response => {
         if (response.ok) {
-          console.log('Signed in');
+          return response.json();
         } else {
           throw new Error('Sign-in failed');
         }
       })
+      .then(data => {
+        console.log('Signed in');
+        // Extract token from the response JSON
+        const accessToken = data.data.token;
+        // Save token to local storage
+        localStorage.setItem('accessToken', accessToken);
+        // Save user details to local storage
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('otp', otp);
+        // Log user details to console
+        console.log('User Email:', email);
+        console.log('OTP:', otp);
+        console.log('Access Token:', accessToken);
+      })
       .catch(error => {
-        console.error( error);
+        console.error(error);
         setErrorMessage('Failed to sign in. Please try again.');
       });
   };
-
+  
+  
+  
   return (
     <form >
       <label>
@@ -102,8 +122,6 @@ const LoginForm: React.FC = () => {
       <Button fontSize="14px" paddingTop="16px" paddingBottom="16px" onClick={handleSignIn}>
         Sign In
       </Button>
-      {errorMessage && <ErrorMessage content={errorMessage} />}
-      {successMessage && <SuccessMessage content={successMessage} />}
     </form>
   );
 };

@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.document-task {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 72%;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.document-task>p {
+    font-size: 22px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.document-filter {
+    display: flex;
+    flex-direction: row;
+    width: 72%;
+    justify-content: left;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.document-filter>a {
+    padding: 5px 11px;
+    color: #CC0000;
+    text-decoration: none;
+    margin-right: 1%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.active {
+    background-color: #CC0000;
+    color: white !important;
+    border-radius: 5px;
+}
+
+.document-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+.document-main-text {
+    margin: auto;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    color: #000000;
+}
+
+.document-sub-text {
+    margin: auto;
+    margin-top: 30px;
+    color: #736E6E;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.document-action{
+    display: flex;
+    flex-direction: column;
+    margin-top: 27px;
+}
+.document-action>Button{
+    margin: auto;
+    margin-top: 15px;
+}
